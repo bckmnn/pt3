@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QQuickWidget>
+#include <QQuickWindow>
 
 namespace Ui {
 class MainWindow;
@@ -14,6 +16,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_quickWidget_sceneGraphError(const QQuickWindow::SceneGraphError &error, const QString &message);
+
+    void on_quickWidget_statusChanged(const QQuickWidget::Status &arg1);
+
+    void on_actionLoad_triggered();
 
 private:
     Ui::MainWindow *ui;
