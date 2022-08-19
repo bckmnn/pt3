@@ -38,7 +38,8 @@ int main(int argc, char **argv) {
     setupUpdater();
 
     MainWindow win;    
-    win.menuBar()->addAction(Updater::instance().getAction());
+    //win.menuBar()->addAction(Updater::instance().getAction());
+    win.addUpdateButton(Updater::instance().getAction());
     win.show();
 
     return app.exec();

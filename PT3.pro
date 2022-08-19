@@ -3,8 +3,8 @@ CONFIG += c++17
 TEMPLATE = app
 VERSION = 0.9.0
 
-DEFINES += APP_VERSION="$$VERSION"
-DEFINES += GIT_VERSION=$$system(git describe --always)
+DEFINES += APPVERSION="$$VERSION"
+DEFINES += GITVERSION=$$system(git describe --always)
 
 
 APP_NAME = PT3
@@ -46,11 +46,13 @@ RCC_DIR = build/rcc/
 SOURCES += \
     mainwindow.cpp \
     src/constants.cpp \
-    src/main.cpp
+    src/main.cpp \
+    src/qmlwidget.cpp
 
 HEADERS += \
     mainwindow.h \
-    src/constants.h
+    src/constants.h \
+    src/qmlwidget.h
 
 FORMS += \
     mainwindow.ui

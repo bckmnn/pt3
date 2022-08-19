@@ -48,22 +48,21 @@
        <number>6</number>
       </property>
       <item>
-       <widget class="QQuickWidget" name="quickWidget">
+       <widget class="QmlWidget" name="qmlWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="resizeMode">
-         <enum>QQuickWidget::SizeRootObjectToView</enum>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="toolButton">
-        <property name="text">
-         <string>...</string>
+        <property name="autoFillBackground">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -73,23 +72,6 @@
      </layout>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>640</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuPT3">
-    <property name="title">
-     <string>PT3</string>
-    </property>
-    <addaction name="separator"/>
-   </widget>
-   <addaction name="menuPT3"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="minimumSize">
@@ -108,18 +90,31 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionLoad"/>
+   <addaction name="actionshow_console"/>
   </widget>
   <action name="actionLoad">
    <property name="text">
     <string>Load</string>
    </property>
   </action>
+  <action name="actionshow_console">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>show console</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QQuickWidget</class>
+   <class>QmlWidget</class>
    <extends>QWidget</extends>
-   <header location="global">QtQuickWidgets/QQuickWidget</header>
+   <header>src/qmlwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
