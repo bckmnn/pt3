@@ -13,6 +13,9 @@ DEFINES += APP_NAME="$$APP_NAME"
 APP_UNIX_NAME = pt3
 DEFINES += APP_UNIX_NAME="$$APP_UNIX_NAME"
 
+DEFINES += ORGNAME="bckmnn"
+DEFINES += ORGDOMAIN="pt3.bckmnn.com"
+
 message(Building $${APP_NAME} $${VERSION})
 message(Qt $$[QT_VERSION] in $$[QT_INSTALL_PREFIX])
 
@@ -46,13 +49,18 @@ RCC_DIR = build/rcc/
 SOURCES += \
     mainwindow.cpp \
     src/constants.cpp \
+    src/logger.cpp \
     src/main.cpp \
     src/qmlwidget.cpp
 
 HEADERS += \
     mainwindow.h \
     src/constants.h \
+    src/logger.h \
     src/qmlwidget.h
 
 FORMS += \
     mainwindow.ui
+
+DISTFILES += \
+    .astylerc

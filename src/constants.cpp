@@ -8,3 +8,5 @@ const char *Constants::VERSION = STRINGIFY(APPVERSION);
 const char *Constants::GIT_VERSION = STRINGIFY(GITVERSION);
 const char *Constants::NAME = STRINGIFY(APP_NAME);
 const char *Constants::UNIX_NAME = STRINGIFY(APP_UNIX_NAME);
+const char *Constants::ORG_NAME = STRINGIFY(ORGNAME);
+const char *Constants::ORG_DOMAIN = STRINGIFY(ORGDOMAIN);

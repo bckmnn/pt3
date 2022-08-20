@@ -1,5 +1,4 @@
-#ifndef QMLWIDGET_H
-#define QMLWIDGET_H
+#pragma once
 
 #include <QObject>
 #include <QQuickWidget>
@@ -10,4 +9,3 @@ public:
     QmlWidget(QWidget *parent = nullptr);
 };
 
-#endif // QMLWIDGET_H
