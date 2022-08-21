@@ -29,9 +29,18 @@ discuss what you would like to change.
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-## Libraries
+## Third Party
+
+As with many open source projects PT3 is standing on the shoulders of giants.
+See the following list for projects that made PT3 possible:
+
+* **Qt 5.14 Open Source** by The Qt Company https://www.qt.io/
 
 PT3 is using the following libraries:
 
 * **http** by Flavio Tordini https://github.com/flaviotordini/http
 * **updater** by Flavio Tordini https://github.com/flaviotordini/updater
+
+PT3 is using the following fonts:
+
+* **Victor Mono** by Rune Bjørnerås (https://github.com/rubjo) https://rubjo.github.io/victor-mono/
