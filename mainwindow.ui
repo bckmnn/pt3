@@ -32,7 +32,7 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="mainWinHorizontalLayout">
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="sizePolicy">

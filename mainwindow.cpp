@@ -10,9 +10,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QShortcut *fullscreenHotKey = new QShortcut(QKeySequence(Qt::Key_F11), this);
     fullscreenHotKey->setContext(Qt::ApplicationShortcut);
-
     QObject::connect(fullscreenHotKey, &QShortcut::activated,
                      this, &MainWindow::fullscreenShortcutActivated);
+
+    QShortcut *totalFullscreenHotKey = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_F11), this);
+    totalFullscreenHotKey->setContext(Qt::ApplicationShortcut);
+    QObject::connect(totalFullscreenHotKey, &QShortcut::activated,
+                     this, &MainWindow::totalFullscreenShortcutActivated);
 
 }
 
@@ -30,6 +34,15 @@ void MainWindow::setListViewModel(QStringListModel *model) {
                      this, &MainWindow::consoleModelReset);
 }
 
+void MainWindow::restoreWindow() {
+    ui->mainWinHorizontalLayout->setMargin(9);
+    if(ui->actionshow_console->isChecked()) {
+        ui->toolBox->show();
+    }
+    ui->toolBar->show();
+    this->showNormal();
+}
+
 void MainWindow::on_actionLoad_triggered() {
     qDebug() << "action triggered";
 }
@@ -44,8 +57,21 @@ void MainWindow::on_actionshow_console_triggered(bool checked) {
 
 void MainWindow::fullscreenShortcutActivated() {
     if(this->isFullScreen()) {
-        this->showNormal();
+        restoreWindow();
     } else {
+        this->showFullScreen();
+    }
+}
+
+void MainWindow::totalFullscreenShortcutActivated() {
+    if(this->isFullScreen()) {
+        restoreWindow();
+    } else {
+        ui->mainWinHorizontalLayout->setMargin(0);
+        if(ui->actionshow_console->isChecked()) {
+            ui->toolBox->hide();
+        }
+        ui->toolBar->hide();
         this->showFullScreen();
     }
 }

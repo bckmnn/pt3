@@ -19,8 +19,11 @@ class MainWindow : public QMainWindow {
     void addUpdateButton(QAction *action);
     void setListViewModel(QStringListModel *model);
 
+    void restoreWindow();
+
   private slots:
     void fullscreenShortcutActivated();
+    void totalFullscreenShortcutActivated();
     void consoleModelReset();
 
     void on_actionLoad_triggered();
