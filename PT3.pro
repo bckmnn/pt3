@@ -47,20 +47,20 @@ RCC_DIR = build/rcc/
 
 
 SOURCES += \
-    mainwindow.cpp \
+    src/mainwindow.cpp \
     src/constants.cpp \
     src/logger.cpp \
     src/main.cpp \
     src/qmlwidget.cpp
 
 HEADERS += \
-    mainwindow.h \
+    src/mainwindow.h \
     src/constants.h \
     src/logger.h \
     src/qmlwidget.h
 
 FORMS += \
-    mainwindow.ui
+    src/mainwindow.ui
 
 DISTFILES += \
     .astylerc
