@@ -32,7 +32,7 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -45,7 +45,7 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item row="0" column="0">
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
        <number>6</number>
@@ -70,13 +70,73 @@
        </widget>
       </item>
       <item>
-       <widget class="QListView" name="listView">
-        <property name="font">
-         <font>
-          <family>Source Code Pro</family>
-          <pointsize>10</pointsize>
-         </font>
+       <widget class="QToolBox" name="toolBox">
+        <property name="currentIndex">
+         <number>0</number>
         </property>
+        <widget class="QWidget" name="debugPage">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>316</width>
+           <height>393</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Debug Console</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item>
+           <widget class="QListView" name="consoleListView">
+            <property name="font">
+             <font>
+              <family>Source Code Pro</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnClearConsole">
+            <property name="text">
+             <string>Clear Console</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="settingsPage">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>316</width>
+           <height>393</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Page 2</string>
+         </attribute>
+        </widget>
        </widget>
       </item>
      </layout>

@@ -66,6 +66,11 @@ void Logger::cleanUp() {
     }
 }
 
+void Logger::clearMessages() {
+    messages.clear();
+    messageModel->setStringList(messages);
+}
+
 void Logger::logMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message) {
     QFile checkFile(Logger::fileName);
     int size = checkFile.size();

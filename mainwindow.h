@@ -20,12 +20,14 @@ class MainWindow : public QMainWindow {
     void setListViewModel(QStringListModel *model);
 
   private slots:
+    void fullscreenShortcutActivated();
+    void consoleModelReset();
 
     void on_actionLoad_triggered();
 
     void on_actionshow_console_triggered(bool checked);
 
-    void fullscreenShortcutActivated();
+    void on_btnClearConsole_clicked();
 
   private:
     Ui::MainWindow *ui;

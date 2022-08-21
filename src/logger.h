@@ -14,6 +14,8 @@ class Logger : public QObject {
     static bool init();
     static void setFileName();
     static void cleanUp();
+    static void clearMessages();
+
     static QString folderName;
     static QString fileName;
 
@@ -24,6 +26,7 @@ class Logger : public QObject {
 
     static void logMessageHandler(QtMsgType type, const QMessageLogContext &context,
                                   const QString& txt);
+
   signals:
 
 };

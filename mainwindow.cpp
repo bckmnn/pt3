@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "src/logger.h"
 #include <QShortcut>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -24,7 +25,9 @@ void MainWindow::addUpdateButton(QAction *action) {
 }
 
 void MainWindow::setListViewModel(QStringListModel *model) {
-    ui->listView->setModel(model);
+    ui->consoleListView->setModel(model);
+    QObject::connect(model, &QAbstractListModel::modelReset,
+                     this, &MainWindow::consoleModelReset);
 }
 
 void MainWindow::on_actionLoad_triggered() {
@@ -33,9 +36,9 @@ void MainWindow::on_actionLoad_triggered() {
 
 void MainWindow::on_actionshow_console_triggered(bool checked) {
     if(checked) {
-        ui->listView->show();
+        ui->toolBox->show();
     } else {
-        ui->listView->hide();
+        ui->toolBox->hide();
     }
 }
 
@@ -45,4 +48,12 @@ void MainWindow::fullscreenShortcutActivated() {
     } else {
         this->showFullScreen();
     }
+}
+
+void MainWindow::consoleModelReset() {
+    ui->consoleListView->scrollToBottom();
+}
+
+void MainWindow::on_btnClearConsole_clicked() {
+    Logger::clearMessages();
 }
