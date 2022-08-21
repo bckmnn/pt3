@@ -64,3 +64,6 @@ FORMS += \
 
 DISTFILES += \
     .astylerc
+
+RESOURCES += \
+    src/fonts.qrc

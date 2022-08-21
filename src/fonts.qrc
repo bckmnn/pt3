@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../3rdparty/LICENSE.txt</file>
+        <file>../3rdparty/VictorMono-Medium.otf</file>
+        <file>../3rdparty/VictorMono-Medium.ttf</file>
+        <file>../3rdparty/VictorMono-Regular.otf</file>
+        <file>../3rdparty/VictorMono-Regular.ttf</file>
+        <file>../3rdparty/VictorMono-SemiBold.otf</file>
+        <file>../3rdparty/VictorMono-SemiBold.ttf</file>
+    </qresource>
+</RCC>

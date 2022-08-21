@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include <QStringListModel>
 
 #define MAXFILES 3
 #define MAXSIZE 1024 * 100
@@ -15,6 +16,11 @@ class Logger : public QObject {
     static void cleanUp();
     static QString folderName;
     static QString fileName;
+
+    static bool logDebug;
+
+    static QStringList messages;
+    static QStringListModel *messageModel;
 
     static void logMessageHandler(QtMsgType type, const QMessageLogContext &context,
                                   const QString& txt);
