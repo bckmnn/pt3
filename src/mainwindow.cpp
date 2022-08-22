@@ -8,12 +8,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
+#ifdef Q_OS_MAC
+    QShortcut *fullscreenHotKey = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_F), this);
+#else
     QShortcut *fullscreenHotKey = new QShortcut(QKeySequence(Qt::Key_F11), this);
+#endif
     fullscreenHotKey->setContext(Qt::ApplicationShortcut);
     QObject::connect(fullscreenHotKey, &QShortcut::activated,
                      this, &MainWindow::fullscreenShortcutActivated);
 
+#ifdef Q_OS_MAC
+    QShortcut *totalFullscreenHotKey = new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_F), this);
+#else
     QShortcut *totalFullscreenHotKey = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_F11), this);
+#endif
+
     totalFullscreenHotKey->setContext(Qt::ApplicationShortcut);
     QObject::connect(totalFullscreenHotKey, &QShortcut::activated,
                      this, &MainWindow::totalFullscreenShortcutActivated);
