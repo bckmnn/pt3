@@ -1,7 +1,9 @@
 #include "qmlwidget.h"
+#include <QCoreApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QMimeData>
+#include <QOperatingSystemVersion>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
 
@@ -10,6 +12,16 @@ Q_LOGGING_CATEGORY(log_qmlwidget, "pt3.qmlwidget");
 QmlWidget::QmlWidget(QWidget *parent):
     QQuickWidget(parent) {
     setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+    bool is_mac = QOperatingSystemVersion::current().type() == QOperatingSystemVersion::MacOS;
+
+    QString app_working_dir(QDir::cleanPath(QDir(".").absolutePath()));
+    QString app_dir((is_mac) ? QDir::cleanPath(QCoreApplication::applicationDirPath()+"/../../..")
+                    : QCoreApplication::applicationDirPath());
+    QString bundle_dir((is_mac) ? QDir::cleanPath(QCoreApplication::applicationDirPath()+"/../..")
+                       : QCoreApplication::applicationDirPath());
+
+    engine()->addImportPath(QDir(app_dir).filePath("imports"));
 }
 
 void QmlWidget::clearComponentCache() {
@@ -78,7 +90,7 @@ void QmlWidget::setupImportPaths() {
     }
 
     qDebug(log_qmlwidget) << "current qml import paths:";
-    for(auto p : engine()->importPathList()) {
+    for(const auto &p : engine()->importPathList()) {
         qDebug(log_qmlwidget) << p;
     }
 }

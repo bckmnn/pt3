@@ -44,15 +44,6 @@ int main(int argc, char **argv) {
 
     QApplication app(argc, argv);
 
-    bool is_mac = QOperatingSystemVersion::current().type() == QOperatingSystemVersion::MacOS;
-
-    QString app_working_dir(QDir::cleanPath(QDir(".").absolutePath()));
-    QString app_dir((is_mac) ? QDir::cleanPath(QCoreApplication::applicationDirPath()+"/../../..")
-                    : QCoreApplication::applicationDirPath());
-    QString bundle_dir((is_mac) ? QDir::cleanPath(QCoreApplication::applicationDirPath()+"/../..")
-                       : QCoreApplication::applicationDirPath());
-
-
     // parsing commandline
     QCommandLineParser parser;
     parser.setApplicationDescription(QString("PT3 is a qml prototyping environment."));
